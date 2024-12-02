@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Estúdio de Extensão de Cílios</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@300;600&display=swap">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @tailwind base;
+        @tailwind components;
+        @tailwind utilities;
+
+        @media (max-width: 768px) {
+            .desktop-menu {
+                display: none;
+            }
+            .mobile-menu {
+                display: block;
+            }
+            .mobile-menu-items {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: #1f2937;
+                padding: 1rem;
+            }
+            .mobile-menu-items.active {
+                display: block;
+            }
+            .mobile-menu-items a {
+                display: block;
+                padding: .5rem 0;
+                text-align: center;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .desktop-menu {
+                display: block;
+            }
+            .mobile-menu {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="fixed top-0 w-full bg-gray-800 bg-opacity-90 shadow-md z-50 transition duration-300">
+        <nav class="container mx-auto px-4 py-4 desktop-menu hidden md:block">
+            <div class="flex justify-between items-center">
+                <a href="#home" class="text-white font-semibold hover:text-orange-400 transition duration-300">Home</a>
+                <a href="#about" class="text-white font-semibold hover:text-orange-400 transition duration-300">Sobre Nós</a>
+                <a href="#services" class="text-white font-semibold hover:text-orange-400 transition duration-300">Serviços</a>
+                <a href="#gallery" class="text-white font-semibold hover:text-orange-400 transition duration-300">Galeria</a>
+                <a href="https://studio-lorena-freitas.reservio.com" target="_blank" class="text-white font-semibold hover:text-orange-400 transition duration-300">Agendamento</a>
+                <a href="#contact" class="text-white font-semibold hover:text-orange-400 transition duration-300">Contato</a>
+            </div>
+        </nav>
+        <nav class="container mx-auto px-4 py-4 mobile-menu block md:hidden">
+            <div class="flex justify-between items-center">
+                <span class="text-white font-bold">Studio Lorena Freitas</span>
+                <button onclick="toggleMobileMenu()" class="text-white">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            <div class="mobile-menu-items" id="mobileMenu">
+                <a href="#home" class="text-white font-semibold hover:text-orange-400 transition duration-300">Home</a>
+                <a href="#about" class="text-white font-semibold hover:text-orange-400 transition duration-300">Sobre Nós</a>
+                <a href="#services" class="text-white font-semibold hover:text-orange-400 transition duration-300">Serviços</a>
+                <a href="#gallery" class="text-white font-semibold hover:text-orange-400 transition duration-300">Galeria</a>
+                <a href="https://studio-lorena-freitas.reservio.com" target="_blank" class="text-white font-semibold hover:text-orange-400 transition duration-300">Agendamento</a>
+                <a href="#contact" class="text-white font-semibold hover:text-orange-400 transition duration-300">Contato</a>
+            </div>
+        </nav>
+    </header>
+
+    <script>
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('active');
+        }
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.mobile-menu-items a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('mobileMenu').classList.remove('active');
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const mobileMenuButton = document.querySelector('.mobile-menu button');
+            
+            if (!mobileMenu.contains(e.target) && !mobileMenuButton.contains(e.target)) {
+                mobileMenu.classList.remove('active');
+            }
+        });
+    </script>
+
+    <!-- Restante do conteúdo do site -->
+</body>
+</html>
+
+<!-- Hero Section -->
+<section class="hero h-screen relative overflow-hidden" id="home">
+    <div class="absolute inset-0 z-0">
+        <video autoplay muted loop class="w-full h-full object-cover">
+            <source src="videos/videociliosju.mp4" type="video/mp4">
+            Seu navegador não suporta o formato de vídeo.
+        </video>
+    </div>
+    <div class="relative z-10 flex flex-col items-center justify-end h-full pb-20">
+        <h1 class="text-4xl font-montserrat text-white mb-4">Bem-vinda ao Nosso Studio Lorena Freitas</h1>
+        <p class="text-lg text-white mb-6">Realce sua beleza com nossas extensões de cílios profissionais</p>
+        <div class="reservio-button-container"
+            data-text="Agende agora"
+            data-size="large"
+            data-color="#D5AF00"
+            data-url="https://studio-lorena-freitas.reservio.com">
+   </div>
+   <script src="https://cdn.reservio.com/widget/button-bundle.js"></script>
+    </div>
+</section>
+
+<!-- About Section -->
+<section class="content py-16" id="about">
+    <div class="container mx-auto text-center">
+        <h2 class="text-4xl font-montserrat text-gray-800 mb-4">Sobre Nós</h2>
+        <div class="border-t-2 border-gray-300 mb-6 w-16 mx-auto"></div>
+        <p class="text-lg text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">Bem-vindo ao nosso estúdio Somos uma equipe de uma pessoa certificada e dedicada a realçar sua beleza natural com nossos serviços de extensão de cílios de alta qualidade. Nossa missão é proporcionar a melhor experiência e resultados para nossos clientes, garantindo um ambiente confortável e relaxante.</p>
+    </div>
+    <div class="flex flex-wrap justify-center gap-6 mt-8">
+        <div class="card w-80 shadow-lg rounded-lg overflow-hidden transition-transform transform hover:scale-105 hover:shadow-xl">
+            <a href="studio.html">
+                <img src="imagens/studiodetalhado.jpg" alt="Imagem detalhada do interior do estúdio" class="w-full h-48 object-cover remove-bg">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Nosso Estúdio</h3>
+                    <p class="text-gray-600">Nosso estúdio é projetado para proporcionar um ambiente relaxante e confortável para todos os nossos clientes.</p>
+                </div>
+            </a>
+        </div>
+        <div class="card w-80 shadow-lg rounded-lg overflow-hidden transition-transform transform hover:scale-105 hover:shadow-xl">
+            <a href="nossaprofissional.html">
+                <img src="imagens/lorenaf.png" alt="Imagem detalhada da Profissional" class="w-full h-48 object-cover remove-bg">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Nossa Profissional</h3>
+                    <p class="text-gray-600">Conheça nossa extensionista, dona e responsável pelo estúdio.</p>
+                </div>
+            </a>
+        </div>
+        <div class="card w-80 shadow-lg rounded-lg overflow-hidden transition-transform transform hover:scale-105 hover:shadow-xl">
+            <a href="certificacoes.html">
+                <img src="imagens/paredecertificado.png" alt="Imagem detalhada da Certificação" class="w-full h-48 object-cover remove-bg">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Certificações</h3>
+                    <p class="text-gray-600">Temos orgulho de possuir certificações dos melhores programas de treinamento da indústria.</p>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Services Section -->
+<section id="services" class="content py-16">
+    <h2 class="text-3xl font-bold text-gray-800 mb-6">Serviços de Extensão de Cílios</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+    </div>
+</section>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+
+        
+        <!-- Fio a Fio -->
+        <div class="card bg-white shadow-lg rounded-lg overflow-hidden transition-transform transform hover:scale-105 hover:shadow-xl">
+            <img alt="Imagem detalhada de Fio a Fio" src="imagens/efeitorimel.jpeg" class="w-full h-48 object-cover">
+            <div class="p-4">
+                <h3 class="text-xl font-semibold text-gray-800 mb-2">Efeito Rimel</h3>
+                <p class="text-gray-600">R$ 140,00 Duração: 6 Semanas 2 horas</p>
+                
+                <button class="bg-orange-400 text-white px-4 py-2 rounded-full hover:bg-orange-500 transition duration-300" onclick="toggleDetails(this)">Ver Detalhes</button>
+                <div class="hidden mt-4" id="details-fioafio">
+                    <h4 class="text-lg font-semibold mb-2">Descrição do Serviço</h4>
+                    <p class="text-gray-600">Para quem gosta de um efeito natural, indicado para quem nunca fez extensão de cílios..</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Fox Eye -->
+        <div class="card bg-white shadow-lg rounded-lg overflow-hidden transition-transform transform hover:scale-105 hover:shadow-xl">
+            <img alt="Imagem detalhada de Fox Eye" src="imagens/efeitofox.jpeg" class="w-full h-48 object-cover">
+            <div class="p-4">
+                <h3 class="text-xl font-semibold text-gray-800 mb-2">Efeito Fox</h3>
+                <p class="text-gray-600">Preço: R$X | Duração: X horas</p>
+                <button class="bg-orange-400 text-white px-4 py-2 rounded-full hover:bg-orange-500 transition duration-300" onclick="toggleDetails(this)">Ver Detalhes</button>
+                <div class="hidden mt-4" id="details-foxeeye">
+                    <h4 class="text-lg font-semibold mb-2">Descrição do Serviço</h4>
+                    <p class="text-gray-600">Descrição do serviço Fox Eye.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Brasileiro -->
+        <div class="card bg-white shadow-lg rounded-lg overflow-hidden transition-transform transform hover:scale-105 hover:shadow-xl">
+            <img alt="Imagem detalhada de Brasileiro" src="imagens/brasileiro.jpeg" class="w-full h-48 object-cover">
+            <div class="p-4">
+                <h3 class="text-xl font-semibold text-gray-800 mb-2">Brasileiro</h3>
+                <p class="text-gray-600">Preço: R$X | Duração: X horas</p>
+                <button class="bg-orange-400 text-white px-4 py-2 rounded-full hover:bg-orange-500 transition duration-300" onclick="toggleDetails(this)">Ver Detalhes</button>
+                <div class="hidden mt-4" id="details-brasileiro">
+                    <h4 class="text-lg font-semibold mb-2">Descrição do Serviço</h4>
+                    <p class="text-gray-600">Descrição do serviço Brasileiro.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Brasileiro Power -->
+        <div class="card bg-white shadow-lg rounded-lg overflow-hidden transition-transform transform hover:scale-105 hover:shadow-xl">
+            <img alt="Imagem detalhada de Brasileiro Power" src="imagens/megabrasileiro.jpeg" class="w-full h-48 object-cover">
+            <div class="p-4">
+                <h3 class="text-xl font-semibold text-gray-800 mb-2">Mega Brasileiro </h3>
+                <p class="text-gray-600">Preço: R$140,00 | Duração: 6 semanas 2 horas</p>
+                <button class="bg-orange-400 text-white px-4 py-2 rounded-full hover:bg-orange-500 transition duration-300" onclick="toggleDetails(this)">Ver Detalhes</button>
+                <div class="hidden mt-4" id="details-brasileiropower">
+                    <h4 class="text-lg font-semibold mb-2">Descrição do Serviço</h4>
+                    <p class="text-gray-600">Descrição do serviço Brasileiro .</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Egípcio -->
+        <div class="card bg-white shadow-lg rounded-lg overflow-hidden transition-transform transform hover:scale-105 hover:shadow-xl">
+            <img alt="Imagem detalhada de Egípcio" src="imagens/egpicio.jpeg" class="w-full h-48 object-cover">
+            <div class="p-4">
+                <h3 class="text-xl font-semibold text-gray-800 mb-2">Egípcio</h3>
+                <p class="text-gray-600">Preço: R$X | Duração: X horas</p>                
+                <button class="bg-orange-400 text-white px-4 py-2 rounded-full hover:bg-orange-500 transition duration-300" onclick="toggleDetails(this)">Ver Detalhes</button>
+                <div class="hidden mt-4" id="details-egipcio">
+                    <h4 class="text-lg font-semibold mb-2">Descrição do Serviço</h4>
+                    <p class="text-gray-600">Descrição do serviço Egípcio.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Egípcio Plus -->
+        <div class="card bg-white shadow-lg rounded-lg overflow-hidden transition-transform transform hover:scale-105 hover:shadow-xl">
+            <img alt="Imagem detalhada de Egípcio Plus" src="imagens/egipcioplus.jpeg" class="w-full h-48 object-cover">
+            <div class="p-4">
+                <h3 class="text-xl font-semibold text-gray-800 mb-2">Egípcio Plus</h3>
+                <p class="text-gray-600">Preço: R$X | Duração: X horas</p>                
+                <button class="bg-orange-400 text-white px-4 py-2 rounded-full hover:bg-orange-500 transition duration-300" onclick="toggleDetails(this)">Ver Detalhes</button>
+                <div class="hidden mt-4" id="details-egipcioplus">
+                    <h4 class="text-lg font-semibold mb-2">Descrição do Serviço</h4>
+                    <p class="text-gray-600">Descrição do serviço Egípcio Plus.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Híbrido -->
+        <div class="card bg-white shadow-lg rounded-lg overflow-hidden transition-transform transform hover:scale-105 hover:shadow-xl">
+            <img alt="Imagem detalhada de Híbrido" src="imagens/efeitohibrido.jpeg" class="w-full h-48 object-cover">
+            <div class="p-4">
+                <h3 class="text-xl font-semibold text-gray-800 mb-2">Híbrido</h3>
+                <p class="text-gray-600">Preço: R$X | Duração: X horas</p>                
+                <button class="bg-orange-400 text-white px-4 py-2 rounded-full hover:bg-orange-500 transition duration-300" onclick="toggleDetails(this)">Ver Detalhes</button>
+                <div class="hidden mt-4" id="details-hibrido">
+                    <h4 class="text-lg font-semibold mb-2">Descrição do Serviço</h4>
+                    <p class="text-gray-600">Descrição do serviço Híbrido.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Volume Russo -->
+        <div class="card bg-white shadow-lg rounded-lg overflow-hidden transition-transform transform hover:scale-105 hover:shadow-xl">
+            <img alt="Imagem detalhada de Volume Russo" src="imagens/russo.jpeg" class="w-full h-48 object-cover">
+            <div class="p-4">
+                <h3 class="text-xl font-semibold text-gray-800 mb-2">Volume Russo</h3>
+                <p class="text-gray-600">Preço: R$X | Duração: X horas</p>                
+                <button class="bg-orange-400 text-white px-4 py-2 rounded-full hover:bg-orange-500 transition duration-300" onclick="toggleDetails(this)">Ver Detalhes</button>
+                <div class="hidden mt-4" id="details-volumerusso">
+                    <h4 class="text-lg font-semibold mb-2">Descrição do Serviço</h4>
+                    <p class="text-gray-600">Descrição do serviço Volume Russo.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mega Volume -->
+        <div class="card bg-white shadow-lg rounded-lg overflow-hidden transition-transform transform hover:scale-105 hover:shadow-xl">
+            <img alt="Imagem detalhada de Mega Volume" src="imagens/efeitobrown.jpeg" class="w-full h-48 object-cover">
+            <div class="p-4">
+                <h3 class="text-xl font-semibold text-gray-800 mb-2">Efeito Brown</h3>
+                <p class="text-gray-600">Preço: R$X | Duração: X horas</p>                
+                <button class="bg-orange-400 text-white px-4 py-2 rounded-full hover:bg-orange-500 transition duration-300" onclick="toggleDetails(this)">Ver Detalhes</button>
+                <div class="hidden mt-4" id="details-megavolume">
+                    <h4 class="text-lg font-semibold mb-2">Descrição do Serviço</h4>
+                    <p class="text-gray-600">Descrição do serviço Mega Volume.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Efeito Molhado -->
+        <div class="card bg-white shadow-lg rounded-lg overflow-hidden transition-transform transform hover:scale-105 hover:shadow-xl">
+            <img alt="Imagem detalhada de Efeito Molhado" src="imagens/efeitomolhado.jpeg" class="w-full h-48 object-cover">
+            <div class="p-4">
+                <h3 class="text-xl font-semibold text-gray-800 mb-2">Efeito Molhado</h3>
+                <p class="text-gray-600">Preço: R$X | Duração: X horas</p>                
+                <button class="bg-orange-400 text-white px-4 py-2 rounded-full hover:bg-orange-500 transition duration-300" onclick="toggleDetails(this)">Ver Detalhes</button>
+                <div class="hidden mt-4" id="details-efetomolhado">
+                    <h4 class="text-lg font-semibold mb-2">Descrição do Serviço</h4>
+                    <p class="text-gray-600">Descrição do serviço Efeito Molhado.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Kim Kardashian -->
+        <div class="card bg-white shadow-lg rounded-lg overflow-hidden transition-transform transform hover:scale-105 hover:shadow-xl">
+            <img alt="Imagem detalhada de Kim Kardashian" src="imagens/Efeitokardashian.jpeg" class="w-full h-48 object-cover">
+            <div class="p-4">
+                <h3 class="text-xl font-semibold text-gray-800 mb-2">Kim Kardashian</h3>
+                <p class="text-gray-600">Preço: R$X | Duração: X horas</p>                
+                <button class="bg-orange-400 text-white px-4 py-2 rounded-full hover:bg-orange-500 transition duration-300" onclick="toggleDetails(this)">Ver Detalhes</button>
+                <div class="hidden mt-4" id="details-kimkardashian">
+                    <h4 class="text-lg font-semibold mb-2">Descrição do Serviço</h4>
+                    <p class="text-gray-600">Descrição do serviço Kim Kardashian.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Design Personalizado c/ Tintura -->
+        <div class="card bg-white shadow-lg rounded-lg overflow-hidden transition-transform transform hover:scale-105 hover:shadow-xl">
+            <img alt="Imagem detalhada de Design Personalizado c/ Tintura" src="imagens/tintura.jpeg" class="w-full h-48 object-cover">
+            <div class="p-4">
+                <h3 class="text-xl font-semibold text-gray-800 mb-2">Design Personalizado c/ Tintura</h3>
+                <p class="text-gray-600">Preço: R$X | Duração: X horas</p>                
+                <button class="bg-orange-400 text-white px-4 py-2 rounded-full hover:bg-orange-500 transition duration-300" onclick="toggleDetails(this)">Ver Detalhes</button>
+                <div class="hidden mt-4" id="details-designpersonalizado">
+                    <h4 class="text-lg font-semibold mb-2">Descrição do Serviço</h4>
+                    <p class="text-gray-600">Descrição do serviço Design Personalizado c/ Tintura.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Spa dos Lábios -->
+        <div class="card bg-white shadow-lg rounded-lg overflow-hidden transition-transform transform hover:scale-105 hover:shadow-xl">
+            <img alt="Imagem detalhada de Spa dos Lábios" src="imagens/spadp.jpeg" class="w-full h-48 object-cover">
+            <div class="p-4">
+                <h3 class="text-xl font-semibold text-gray-800 mb-2">Spa dos Lábios</h3>
+                <p class="text-gray-600">Preço: R$X | Duração: X horas</p>
+                <button class="bg-orange-400 text-white px-4 py-2 rounded-full hover:bg-orange-500 transition duration-300" onclick="toggleDetails(this)">Ver Detalhes</button>
+                <div class="hidden mt-4" id="details-spadoslábios">
+                    <h4 class="text-lg font-semibold mb-2">Descrição do Serviço</h4>
+                    <p class="text-gray-600">Descrição do serviço Spa dos Lábios.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Design com Henna -->
+        <div class="card bg-white shadow-lg rounded-lg overflow-hidden transition-transform transform hover:scale-105 hover:shadow-xl">
+            <img alt="Imagem detalhada de Design com Henna" src="imagens/desinghenna.jpeg" class="w-full h-48 object-cover">
+            <div class="p-4">
+                <h3 class="text-xl font-semibold text-gray-800 mb-2">Design com Henna</h3>
+                <p class="text-gray-600">Preço: R$X | Duração: X horas</p>                
+                <button class="bg-orange-400 text-white px-4 py-2 rounded-full hover:bg-orange-500 transition duration-300" onclick="toggleDetails(this)">Ver Detalhes</button>
+                <div class="hidden mt-4" id="details-designcomhenna">
+                    <h4 class="text-lg font-semibold mb-2">Descrição do Serviço</h4>
+                    <p class="text-gray-600">Descrição do serviço Design com Henna.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Efeito Soft -->
+        <div class="card bg-white shadow-lg rounded-lg overflow-hidden transition-transform transform hover:scale-105 hover:shadow-xl">
+            <img alt="Imagem detalhada de Efeito Soft" src="imagens/efeitosoft.jpeg" class="w-full h-48 object-cover">
+            <div class="p-4">
+                <h3 class="text-xl font-semibold text-gray-800 mb-2">Efeito Soft</h3>
+                <p class="text-gray-600">Preço: R$X | Duração: X horas</p>
+                <button class="bg-orange-400 text-white px-4 py-2 rounded-full hover:bg-orange-500 transition duration-300" onclick="toggleDetails(this)">Ver Detalhes</button>
+                <div class="hidden mt-4" id="details-efeitosoft">
+                    <h4 class="text-lg font-semibold mb-2">Descrição do Serviço</h4>
+                    <p class="text-gray-600">Descrição do serviço Efeito Soft.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Volume Express -->
+        <div class="card bg-white shadow-lg rounded-lg overflow-hidden transition-transform transform hover:scale-105 hover:shadow-xl">
+            <img alt="Imagem detalhada de Volume Express" src="imagens/volumeexpress.jpg" class="w-full h-48 object-cover">
+            <div class="p-4">
+                <h3 class="text-xl font-semibold text-gray-800 mb-2">Volume Express</h3>
+                <p class="text-gray-600">Preço: R$X | Duração: X horas</p>
+                <button class="bg-orange-400 text-white px-4 py-2 rounded-full hover:bg-orange-500 transition duration-300" onclick="toggleDetails(this)">Ver Detalhes</button>
+                <div class="hidden mt-4" id="details-volumeexpress">
+                    <h4 class="text-lg font-semibold mb-2">Descrição do Serviço</h4>
+                    <p class="text-gray-600">Descrição do serviço Volume Express.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Efeito Queen -->
+        <div class="card bg-white shadow-lg rounded-lg overflow-hidden transition-transform transform hover:scale-105 hover:shadow-xl">
+            <img alt="Imagem detalhada de Efeito Queen" src="imagens/efeitoqueen.jpeg" class="w-full h-48 object-cover">
+            <div class="p-4">
+                <h3 class="text-xl font-semibold text-gray-800 mb-2">Efeito Queen</h3>
+                <p class="text-gray-600">Preço: R$X | Duração: X horas</p>
+                <button class="bg-orange-400 text-white px-4 py-2 rounded-full hover:bg-orange-500 transition duration-300" onclick="toggleDetails(this)">Ver Detalhes</button>
+                <div class="hidden mt-4" id="details-efeitoqueen">
+                    <h4 class="text-lg font-semibold mb-2">Descrição do Serviço</h4>
+                    <p class="text-gray-600">Descrição do serviço Efeito Queen.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- JavaScript for Toggle Details -->
+        <script>
+            function toggleDetails(button) {
+                const details = button.nextElementSibling;
+                details.classList.toggle('hidden');
+            }
+        </script>
+    </div>
+</main>
+
+</body>
+</html>
+<script>
+</script>
+
+<!-- Gallery Section -->
+<section class="content py-16" id="gallery">
+    <h2 class="text-3xl font-montserrat text-gray-800 text-center mb-8">Galeria</h2>
+    <div class="flex flex-wrap justify-center gap-6">
+        <div class="card w-80 bg-white shadow-lg rounded-lg overflow-hidden transition-transform transform hover:scale-105 hover:shadow-xl">
+            <img alt="Imagem de antes e depois das extensões de cílios" src="imagens/antesdepois.jpg" class="w-full h-48 object-cover">
+            <div class="p-4">
+                <h3 class="text-xl font-semibold text-gray-800 mb-2">Antes & Depois</h3>
+                <p class="text-gray-600">Veja as incríveis transformações que nossos clientes experimentaram com nossas extensões de cílios.</p>
+            </div>
+        </div>
+        <div class="card w-80 bg-white shadow-lg rounded-lg overflow-hidden transition-transform transform hover:scale-105 hover:shadow-xl">
+            <img alt="Vídeo do processo de aplicação de extensões de cílios" src="imagens/video.jpg" class="w-full h-48 object-cover">
+            <div class="p-4">
+                <h3 class="text-xl font-semibold text-gray-800 mb-2">Vídeo do Processo</h3>
+                <p class="text-gray-600">Assista a um vídeo do nosso processo de aplicação de extensões de cílios e veja como alcançamos resultados impressionantes.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Scheduling Section -->
+<section class="content py-16" id="faq">
+    <section id="faq" class="py-16 bg-gray-100">
+        <div class="max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-lg">
+            <h2 class="text-3xl font-semibold text-center text-gray-800 mb-6">FAQ</h2>
+            <div class="flex flex-wrap justify-center gap-6">
+                <div class="card w-80 bg-white shadow-lg rounded-lg overflow-hidden transition-transform transform hover:scale-105 hover:shadow-xl">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2 p-4">O que são extensões de cílios?</h3>
+                    <p class="text-gray-600 p-4">Extensões de cílios são cílios semi-permanentes que são colados manualmente em cima dos seus cílios naturais.</p>
+                </div>
+                <div class="card w-80 bg-white shadow-lg rounded-lg overflow-hidden transition-transform transform hover:scale-105 hover:shadow-xl">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2 p-4">Quanto tempo duram?</h3>
+                    <p class="text-gray-600 p-4">Com os cuidados adequados, as extensões de cílios podem durar até 6 semanas.</p>
+                </div>
+                <div class="card w-80 bg-white shadow-lg rounded-lg overflow-hidden transition-transform transform hover:scale-105 hover:shadow-xl">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2 p-4">Elas são seguras?</h3>
+                    <p class="text-gray-600 p-4">Sim, nossas extensões de cílios são seguras e aplicadas por profissionais certificados.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+<section class="content py-16" id="contact">
+    <h2 class="text-3xl font-montserrat text-gray-800 text-center mb-8">Contate-Nos</h2>
+    <form class="max-w-lg mx-auto">
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="name">Nome</label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="name" placeholder="Seu Nome" type="text"/>
+        </div>
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="email">Email</label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" placeholder="Seu Email" type="email"/>
+        </div>
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="message">Mensagem</label>
+            <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="message" placeholder="Sua Mensagem"></textarea>
+        </div>
+        <div class="flex items-center justify-between">
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">Enviar</button>
+        </div>
+    </form>
+</section>
+
+<!-- JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.js"></script>
+<script>
+    // Adicione aqui seu código JavaScript
+</script>
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estúdio de Extensão de Cílios</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@300;600&display=swap">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @tailwind base;
+        @tailwind components;
+        @tailwind utilities;
+    </style>
+</head>
+<body>
+
+<!-- Footer com Mapa -->
+<section id="contact" class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+        <h2 class="text-4xl font-bold text-center mb-12">Entre em Contato</h2>
+        <div class="flex flex-col md:flex-row justify-between items-start">
+            <div class="md:w-1/2 mb-8 md:mb-0">
+                <h3 class="text-2xl font-bold mb-4">Informações de Contato</h3>
+                <p class="mb-4"><strong>Endereço:</strong>  R. Pedro Luiz García, N° 13 - sala 16 - Centro, Itapevi - SP, 06653-087</p>
+                <p class="mb-4"><strong>Telefone:</strong> (11) 95819-7590</p>
+                <p class="mb-4"><strong>Email:</strong> contato@studiolorenafreitas.com</p>
+            </div>
+            <div class="md:w-1/2">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.098839582944!2d-46.6522777!3d-23.5505199!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDMzJzAxLjkiUyA0NsKwMzknMDguMiJX!5e0!3m2!1spt-BR!2sbr!4v1625761234567!5m2!1spt-BR!2sbr" 
+                    width="100%" 
+                    height="300" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy">
+                </iframe>
+            </div>
+        </div>
+    </div>
+</section>
+</main>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Estúdio de Extensão de Cílios</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@300;600&display=swap">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @tailwind base;
+        @tailwind components;
+        @tailwind utilities;
+
+        .bg-uber {
+            background-image: linear-gradient(to right, #FFD700, #FFA07A);
+        }
+        .bg-uber-hover {
+            background-image: linear-gradient(to right, #FFC400, #FFA07A);
+        }
+        .bg-99 {
+            background-image: linear-gradient(to right, #34A85A, #2ECC71);
+        }
+        .bg-99-hover {
+            background-image: linear-gradient(to right, #2ECC40, #29B759);
+        }
+    </style>
+</head>
+<body>
+    <div class="mt-4 text-center">
+        <p>Peça seu aplicativo de viagens para ir ao nosso studio:</p>
+        <div class="flex space-x-4 justify-center">
+            <!-- Uber Button with Link -->
+            <a href="https://m.uber.com/ul/?client_id=N-nVko4IJyqtH8IAbVLhiEfGiQgP6OZo&action=setPickup&pickup=my_location&dropoff[latitude]=-23.54821301099522&dropoff[longitude]=-46.935056244760425" 
+               class="flex items-center gap-3 bg-black text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition-colors duration-300 shadow-lg no-underline cursor-pointer">
+                <!-- Uber Icon -->
+                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 1.5C6.2 1.5 1.5 6.2 1.5 12S6.2 22.5 12 22.5 22.5 17.8 22.5 12 17.8 1.5 12 1.5zM8.4 16.4c-1.2 0-2.1-1-2.1-2.1 0-1.2 1-2.1 2.1-2.1 1.2 0 2.1 1 2.1 2.1s-1 2.1-2.1 2.1zm7.2 0c-1.2 0-2.1-1-2.1-2.1 0-1.2 1-2.1 2.1-2.1 1.2 0 2.1 1 2.1 2.1s-1 2.1-2.1 2.1z"/>
+                </svg>
+                <!-- Button Text -->
+                <span class="font-medium text-base">Chame seu Uber</span>
+            </a>
+            <!-- 99 Button with Link -->
+            <a href="https://www.99app.com/ride?dropoff=Rua%20Pedro%20Luiz%20Garc%C3%ADa,%20N%C2%B0%2013%20-%20sala%2016%20-%20Centro,%20Itapevi%20-%20SP,%2006653-087" 
+               class="flex items-center gap-3 bg-99 text-white px-6 py-3 rounded-lg hover:bg-99-hover transition-colors duration-300 shadow-lg no-underline cursor-pointer">
+                <!-- 99 Icon -->
+                <i class="fas fa-taxi fa-lg mr-2"></i>
+                <!-- Button Text -->
+                <span class="font-medium text-base">Ride with 99</span>
+            </a>
+        </div>
+    </div>
+        </div>
+        <div class="md:w-1/2">
+</body>
+
+<footer class="bg-gray-800 text-white py-8">
+<div class="container mx-auto px-4">
+    <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="text-center md:text-left mb-4 md:mb-0">
+            <h3 class="text-xl font-bold mb-2">Studio Lorena Freitas</h3>
+            <p>Transformando olhares, realçando sua beleza</p>
+        </div>
+        <div class="flex space-x-4">
+            <a href="#" class="hover:text-orange-400 transition duration-300">Instagram</a>
+            <a href="#" class="hover:text-orange-400 transition duration-300">Facebook</a>
+            <a href="#" class="hover:text-orange-400 transition duration-300">WhatsApp</a>
+        </div>
+    </div>
+    <div class="text-center mt-8">
+        <p>&copy; 2024 Studio Lorena Freitas - Todos os direitos reservados.</p>
+    </div>
+</div>
+</footer>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cartão 3D com Tailwind CSS</title>
+    <link href="https://unpkg.com/tailwindcss@^2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mx-auto py-16">
+        <div class="card relative group bg-gray-50 rounded-xl shadow-md dark:bg-black dark:border-white dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] transition-all duration-300 ease-in-out">
+            <div class="card-body p-6">
+                <h2 class="text-xl font-bold text-neutral-600 dark:text-white">Faça as coisas flutuarem no ar</h2>
+                <p class="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300">Passe o mouse sobre este cartão para liberar o poder da perspectiva CSS</p>
+                <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=2560&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fGVufDB8fA%3D%D3D" alt="thumbnail" class="w-full h-60 object-cover rounded-xl group-hover:shadow-xl">
+            </div>
+            <div class="card-actions flex justify-between items-center mt-4">
+                <a href="https://twitter.com/mannupaaji" target="_blank" class="px-4 py-2 rounded-xl text-xs font-normal bg-black text-white dark:bg-white dark:text-black">Tentar agora →</a>
+                <button class="px-4 py-2 rounded-xl bg-white text-black font-bold dark:bg-black dark:text-white">Inscrever-se</button>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.tailwindcss.com"></script>
+</body>
+</html>
